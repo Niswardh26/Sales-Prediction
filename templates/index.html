@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Forecasting & Inventory Planner</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="icon" href="../view/sales.png" type="image/png">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>🚀 Sales Forecasting & Inventory Planner</h1>
+        <p class="subtitle">
+            Analyze historical sales, view forecasted values, and track prediction accuracy year-wise.
+        </p>
+
+        <div class="table-header">
+            <div class="filter">
+                <label for="yearSelect">Select Year</label>
+                <select id="yearSelect"></select>
+            </div>
+        </div>
+
+        <!-- Sales Table -->
+        <table id="salesTable">
+            <div style="margin-top:40px">
+                <h2>📊 Yearly Sales Overview</h2>
+                <p class="section-desc">
+                    This table displays actual sales, predicted sales, absolute error, and accuracy percentage
+                    for each selected year.
+                </p>
+            </div>
+            <thead>
+                <tr>
+                    <th>Year</th>
+                    <th>Actual Sales</th>
+                    <th>Total Profit</th>
+                    <th>Predicted Sales</th>
+                    <th>Absolute Error</th>
+                    <th>Error %</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <div id="inventorySection">
+                <h2>📦 Inventory & Campaign Suggestions</h2>
+                <p class="section-desc">
+                    Analyze inventory performance by sub-category, track growth rates, and leverage campaign recommendations to drive demand efficiently.
+                </p>
+            <table id="inventoryTable">
+                <thead>
+                    <tr>
+                    <th>Sub-Category</th>
+                    <th>Sales (2024)</th>
+                    <th>Predicated Sales (2025)</th>
+                    <th>Growth %</th>
+                    <th>Campaign Suggestion</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div>
+            <h2>📈 Sales Performance Dashboard</h2>
+            <p class="section-desc">
+                Month-wise sales visualization highlighting trends, seasonality, and overall performance.
+            </p>
+            <div class="chart-container" style="margin-top:40px">
+                <canvas id="salesChart"></canvas>
+            </div>
+        </div>
+        <div>
+            <h2>📉 Inventory Performance Dashboard</h2>
+            <p class="section-desc">
+               Quickly identify which items are growing, which are declining, 
+        and plan campaigns to optimize stock and boost future sales performance.
+            </p>
+            <div class="chart-container">
+                <canvas id="inventoryChart" height="120"></canvas>
+            <div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
